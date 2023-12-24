@@ -117,20 +117,20 @@ type Egg struct {
 
 const eggPath = "/application/nests/%d/eggs"
 
-func (app *PterodactylConfig) GetEggs(nest int) (Eggs, error) {
+func GetEggs(pterodactylCfg PterodactylConfig, nest int) (Eggs, error) {
 	var eggs Eggs
 	path := fmt.Sprintf(eggPath, nest)
-	err := app.apiCall(path, "GET", nil, &eggs)
+	err := ApiCall(pterodactylCfg, path, "GET", nil, &eggs)
 	if err != nil {
 		return eggs, err
 	}
 	return eggs, nil
 }
 
-func (app *PterodactylConfig) GetEgg(nest, id int) (Egg, error) {
+func GetEgg(pterodactylCfg PterodactylConfig, nest, id int) (Egg, error) {
 	var egg Egg
 	path := fmt.Sprintf("%s/%d", fmt.Sprintf(eggPath, nest), id)
-	err := app.apiCall(path, "GET", nil, &egg)
+	err := ApiCall(pterodactylCfg, path, "GET", nil, &egg)
 	if err != nil {
 		return egg, err
 	}

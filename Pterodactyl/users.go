@@ -54,51 +54,33 @@ type User struct {
 		CreatedAt  time.Time `json:"created_at"`
 		UpdatedAt  time.Time `json:"updated_at"`
 	} `json:"attributes"`
-}
-
-type CreateUser struct {
-	Object     string `json:"object"`
-	Attributes struct {
-		Id         int         `json:"id"`
-		ExternalId interface{} `json:"external_id"`
-		Uuid       string      `json:"uuid"`
-		Username   string      `json:"username"`
-		Email      string      `json:"email"`
-		FirstName  string      `json:"first_name"`
-		LastName   string      `json:"last_name"`
-		Language   string      `json:"language"`
-		RootAdmin  bool        `json:"root_admin"`
-		Fa         bool        `json:"2fa"`
-		CreatedAt  time.Time   `json:"created_at"`
-		UpdatedAt  time.Time   `json:"updated_at"`
-	} `json:"attributes"`
 	Meta struct {
-		Resource string `json:"resource"`
-	} `json:"meta"`
+		Resource string `json:"resource,omitempty"`
+	} `json:"meta,omitempty"`
 }
 
 const usersPath = "/application/users"
 
-func (app *PterodactylConfig) GetUsers() (Users, error) {
+func GetUsers(pterodactylCfg PterodactylConfig) (Users, error) {
 	var users Users
-	err := app.apiCall(usersPath, "GET", nil, &users)
+	err := ApiCall(pterodactylCfg, usersPath, "GET", nil, &users)
 	if err != nil {
 		return users, err
 	}
 	return users, nil
 }
 
-func (app *PterodactylConfig) GetUser(id int) (User, error) {
+func GetUser(pterodactylCfg PterodactylConfig, id int) (User, error) {
 	var user User
 	userPath := fmt.Sprintf("%s/%d", usersPath, id)
-	err := app.apiCall(userPath, "GET", nil, &user)
+	err := ApiCall(pterodactylCfg, userPath, "GET", nil, &user)
 	if err != nil {
 		return user, err
 	}
 	return user, nil
 }
 
-func (app *PterodactylConfig) CreateUser(username string, email string, firstName string, lastName string) (User, error) {
+func CreateUser(pterodactylCfg PterodactylConfig, username string, email string, firstName string, lastName string) (User, error) {
 	var user User
 	var body = map[string]string{
 		"username":   username,
@@ -110,14 +92,14 @@ func (app *PterodactylConfig) CreateUser(username string, email string, firstNam
 	if err != nil {
 		return user, err
 	}
-	err = app.apiCall(usersPath, "POST", jsonBody, &user)
+	err = ApiCall(pterodactylCfg, usersPath, "POST", jsonBody, &user)
 	if err != nil {
 		return user, err
 	}
 	return user, nil
 }
 
-func (app *PterodactylConfig) UpdateUser(id int, username string, email string, firstName string, lastName string, language string, password string) (User, error) {
+func UpdateUser(pterodactylCfg PterodactylConfig, id int, username string, email string, firstName string, lastName string, language string, password string) (User, error) {
 	var user User
 	var body = map[string]string{
 		"email":      email,
@@ -132,16 +114,16 @@ func (app *PterodactylConfig) UpdateUser(id int, username string, email string, 
 		return user, err
 	}
 	userPath := fmt.Sprintf("%s/%d", usersPath, id)
-	err = app.apiCall(userPath, "PATCH", jsonBody, &user)
+	err = ApiCall(pterodactylCfg, userPath, "PATCH", jsonBody, &user)
 	if err != nil {
 		return user, err
 	}
 	return user, nil
 }
 
-func (app *PterodactylConfig) DeleteUser(id int) error {
+func DeleteUser(pterodactylCfg PterodactylConfig, id int) error {
 	userPath := fmt.Sprintf("%s/%d", usersPath, id)
-	err := app.apiCall(userPath, "DELETE", nil, nil)
+	err := ApiCall(pterodactylCfg, userPath, "DELETE", nil, nil)
 	if err != nil {
 		return err
 	}

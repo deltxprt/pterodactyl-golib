@@ -157,119 +157,119 @@ type CreateServerRequest struct {
 
 const serverPath = "/application/servers"
 
-func (app *PterodactylConfig) GetServers() (Servers, error) {
+func GetServers(pterodactylCfg PterodactylConfig) (Servers, error) {
 	var servers Servers
-	err := app.apiCall(serverPath, "GET", nil, &servers)
+	err := ApiCall(pterodactylCfg, serverPath, "GET", nil, &servers)
 	if err != nil {
 		return servers, err
 	}
 	return servers, nil
 }
 
-func (app *PterodactylConfig) GetServer(id int) (Server, error) {
+func GetServer(pterodactylCfg PterodactylConfig, id int) (Server, error) {
 	var server Server
 	path := fmt.Sprintf("%s/%d", serverPath, id)
-	err := app.apiCall(path, "GET", nil, &server)
+	err := ApiCall(pterodactylCfg, path, "GET", nil, &server)
 	if err != nil {
 		return server, err
 	}
 	return server, nil
 }
 
-func (app *PterodactylConfig) UpdateServer(id int, request UpdateServerRequest) (Server, error) {
+func UpdateServer(pterodactylCfg PterodactylConfig, id int, request UpdateServerRequest) (Server, error) {
 	var server Server
 	path := fmt.Sprintf("%s/%d/details", serverPath, id)
 	body, err := json.Marshal(request)
 	if err != nil {
 		return server, err
 	}
-	err = app.apiCall(path, "PATCH", body, &server)
+	err = ApiCall(pterodactylCfg, path, "PATCH", body, &server)
 	if err != nil {
 		return server, err
 	}
 	return server, nil
 }
 
-func (app *PterodactylConfig) UpdateServerBuild(id int, request UpdateServerBuildRequest) (Server, error) {
+func UpdateServerBuild(pterodactylCfg PterodactylConfig, id int, request UpdateServerBuildRequest) (Server, error) {
 	var server Server
 	path := fmt.Sprintf("%s/%d/build", serverPath, id)
 	body, err := json.Marshal(request)
 	if err != nil {
 		return server, err
 	}
-	err = app.apiCall(path, "PATCH", body, &server)
+	err = ApiCall(pterodactylCfg, path, "PATCH", body, &server)
 	if err != nil {
 		return server, err
 	}
 	return server, nil
 }
 
-func (app *PterodactylConfig) UpdateServerStartup(id int, request UpdateServerStartupRequest) (Server, error) {
+func UpdateServerStartup(pterodactylCfg PterodactylConfig, id int, request UpdateServerStartupRequest) (Server, error) {
 	var server Server
 	path := fmt.Sprintf("%s/%d/startup", serverPath, id)
 	body, err := json.Marshal(request)
 	if err != nil {
 		return server, err
 	}
-	err = app.apiCall(path, "PATCH", body, &server)
+	err = ApiCall(pterodactylCfg, path, "PATCH", body, &server)
 	if err != nil {
 		return server, err
 	}
 	return server, nil
 }
 
-func (app *PterodactylConfig) CreateServer(request CreateServerRequest) (Server, error) {
+func CreateServer(pterodactylCfg PterodactylConfig, request CreateServerRequest) (Server, error) {
 	var server Server
 	body, err := json.Marshal(request)
 	if err != nil {
 		return server, err
 	}
-	err = app.apiCall(serverPath, "POST", body, &server)
+	err = ApiCall(pterodactylCfg, serverPath, "POST", body, &server)
 	if err != nil {
 		return server, err
 	}
 	return server, nil
 }
 
-func (app *PterodactylConfig) SuspendServer(id int) error {
+func SuspendServer(pterodactylCfg PterodactylConfig, id int) error {
 	path := fmt.Sprintf("%s/%d/suspend", serverPath, id)
-	err := app.apiCall(path, "POST", nil, nil)
+	err := ApiCall(pterodactylCfg, path, "POST", nil, nil)
 	if err != nil {
 		return err
 	}
 	return nil
 }
 
-func (app *PterodactylConfig) UnsuspendServer(id int) error {
+func UnsuspendServer(pterodactylCfg PterodactylConfig, id int) error {
 	path := fmt.Sprintf("%s/%d/unsuspend", serverPath, id)
-	err := app.apiCall(path, "POST", nil, nil)
+	err := ApiCall(pterodactylCfg, path, "POST", nil, nil)
 	if err != nil {
 		return err
 	}
 	return nil
 }
 
-func (app *PterodactylConfig) ReinstallServer(id int) error {
+func ReinstallServer(pterodactylCfg PterodactylConfig, id int) error {
 	path := fmt.Sprintf("%s/%d/reinstall", serverPath, id)
-	err := app.apiCall(path, "POST", nil, nil)
+	err := ApiCall(pterodactylCfg, path, "POST", nil, nil)
 	if err != nil {
 		return err
 	}
 	return nil
 }
 
-func (app *PterodactylConfig) DeleteServer(id int) error {
+func DeleteServer(pterodactylCfg PterodactylConfig, id int) error {
 	path := fmt.Sprintf("%s/%d", serverPath, id)
-	err := app.apiCall(path, "DELETE", nil, nil)
+	err := ApiCall(pterodactylCfg, path, "DELETE", nil, nil)
 	if err != nil {
 		return err
 	}
 	return nil
 }
 
-func (app *PterodactylConfig) ForceDeleteServer(id int) error {
+func ForceDeleteServer(pterodactylCfg PterodactylConfig, id int) error {
 	path := fmt.Sprintf("%s/%d/force", serverPath, id)
-	err := app.apiCall(path, "DELETE", nil, nil)
+	err := ApiCall(pterodactylCfg, path, "DELETE", nil, nil)
 	if err != nil {
 		return err
 	}

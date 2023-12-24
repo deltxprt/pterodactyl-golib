@@ -47,19 +47,19 @@ type Nest struct {
 
 const nestPath = "/application/nests"
 
-func (app *PterodactylConfig) GetNests() (Nests, error) {
+func GetNests(pterodactylCfg PterodactylConfig) (Nests, error) {
 	var nests Nests
-	err := app.apiCall(nestPath, "GET", nil, &nests)
+	err := ApiCall(pterodactylCfg, nestPath, "GET", nil, &nests)
 	if err != nil {
 		return nests, err
 	}
 	return nests, nil
 }
 
-func (app *PterodactylConfig) GetNest(id int) (Nest, error) {
+func GetNest(pterodactylCfg PterodactylConfig, id int) (Nest, error) {
 	var nest Nest
 	url := fmt.Sprintf("%s/%d", nestPath, id)
-	err := app.apiCall(url, "GET", nil, &nest)
+	err := ApiCall(pterodactylCfg, url, "GET", nil, &nest)
 	if err != nil {
 		return nest, err
 	}

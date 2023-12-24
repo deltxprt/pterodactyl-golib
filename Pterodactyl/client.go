@@ -9,15 +9,20 @@ import (
 	"strings"
 )
 
-func (app *PterodactylConfig) apiCall(path string, method string, body []byte, result interface{}) error {
-	url := app.URL + path
+type PterodactylConfig struct {
+	URL    string `json:"url"`
+	ApiKey string `json:"apikey"`
+}
+
+func ApiCall(pterodactylCfg PterodactylConfig, path string, method string, body []byte, result interface{}) error {
+	url := pterodactylCfg.URL + path
 
 	request, err := http.NewRequest(method, url, strings.NewReader(string(body)))
 	if err != nil {
 		return err
 	}
 
-	request.Header.Set("Authorization", app.ApiKey)
+	request.Header.Set("Authorization", pterodactylCfg.ApiKey)
 
 	client := &http.Client{}
 	resp, err := client.Do(request)

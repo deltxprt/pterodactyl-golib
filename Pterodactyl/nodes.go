@@ -78,39 +78,9 @@ type Node struct {
 			Disk   int `json:"disk"`
 		} `json:"allocated_resources"`
 	} `json:"attributes"`
-}
-
-type CreateNode struct {
-	Object     string `json:"object"`
-	Attributes struct {
-		Id                 int         `json:"id"`
-		Uuid               string      `json:"uuid"`
-		Public             bool        `json:"public"`
-		Name               string      `json:"name"`
-		Description        interface{} `json:"description"`
-		LocationId         int         `json:"location_id"`
-		Fqdn               string      `json:"fqdn"`
-		Scheme             string      `json:"scheme"`
-		BehindProxy        bool        `json:"behind_proxy"`
-		MaintenanceMode    bool        `json:"maintenance_mode"`
-		Memory             int         `json:"memory"`
-		MemoryOverallocate int         `json:"memory_overallocate"`
-		Disk               int         `json:"disk"`
-		DiskOverallocate   int         `json:"disk_overallocate"`
-		UploadSize         int         `json:"upload_size"`
-		DaemonListen       int         `json:"daemon_listen"`
-		DaemonSftp         int         `json:"daemon_sftp"`
-		DaemonBase         string      `json:"daemon_base"`
-		CreatedAt          time.Time   `json:"created_at"`
-		UpdatedAt          time.Time   `json:"updated_at"`
-		AllocatedResources struct {
-			Memory int `json:"memory"`
-			Disk   int `json:"disk"`
-		} `json:"allocated_resources"`
-	} `json:"attributes"`
 	Meta struct {
-		Resource string `json:"resource"`
-	} `json:"meta"`
+		Resource string `json:"resource,omitempty"`
+	} `json:"meta,omitempty"`
 }
 
 type CreateNodeRequest struct {
@@ -129,53 +99,53 @@ type CreateNodeRequest struct {
 
 const nodesPath = "/application/nodes"
 
-func (app *PterodactylConfig) GetNodes() (Nodes, error) {
+func GetNodes(pterodactylCfg PterodactylConfig) (Nodes, error) {
 	var nodes Nodes
-	err := app.apiCall(nodesPath, "GET", nil, &nodes)
+	err := ApiCall(pterodactylCfg, nodesPath, "GET", nil, &nodes)
 	if err != nil {
 		return nodes, err
 	}
 	return nodes, nil
 }
 
-func (app *PterodactylConfig) GetNode(id int) (Node, error) {
+func GetNode(pterodactylCfg PterodactylConfig, id int) (Node, error) {
 	var node Node
 	nodePath := fmt.Sprintf("%s/%d", nodesPath, id)
-	err := app.apiCall(nodePath, "GET", nil, &node)
+	err := ApiCall(pterodactylCfg, nodePath, "GET", nil, &node)
 	if err != nil {
 		return node, err
 	}
 	return node, nil
 }
 
-func (app *PterodactylConfig) CreateNode(node CreateNodeRequest) (CreateNode, error) {
+func CreateNode(pterodactylCfg PterodactylConfig, node CreateNodeRequest) (CreateNode, error) {
 	var result CreateNode
 	jsonBody, err := json.Marshal(node)
 	if err != nil {
 		return result, err
 	}
-	err = app.apiCall(nodesPath, "POST", jsonBody, &result)
+	err = ApiCall(pterodactylCfg, nodesPath, "POST", jsonBody, &result)
 	if err != nil {
 		return result, err
 	}
 	return result, nil
 }
 
-func (app *PterodactylConfig) UpdateNode(id int, node CreateNodeRequest) (CreateNode, error) {
+func UpdateNode(pterodactylCfg PterodactylConfig, id int, node CreateNodeRequest) (CreateNode, error) {
 	var result CreateNode
 	jsonBody, err := json.Marshal(node)
 	if err != nil {
 		return result, err
 	}
-	err = app.apiCall(fmt.Sprintf("%s/%d", nodesPath, id), "PATCH", jsonBody, &result)
+	err = ApiCall(pterodactylCfg, fmt.Sprintf("%s/%d", nodesPath, id), "PATCH", jsonBody, &result)
 	if err != nil {
 		return result, err
 	}
 	return result, nil
 }
 
-func (app *PterodactylConfig) DeleteNode(id int) error {
-	err := app.apiCall(fmt.Sprintf("%s/%d", nodesPath, id), "DELETE", nil, nil)
+func DeleteNode(pterodactylCfg PterodactylConfig, id int) error {
+	err := ApiCall(pterodactylCfg, fmt.Sprintf("%s/%d", nodesPath, id), "DELETE", nil, nil)
 	if err != nil {
 		return err
 	}
