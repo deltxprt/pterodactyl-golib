@@ -1,0 +1,1888 @@
+{
+	"info": {
+		"_postman_id": "b5f37d0f-5a52-4586-b342-de7802995bd2",
+		"name": "Pterodactyl",
+		"description": "referenced from this site: [https://dashflo.net/docs/api/pterodactyl/v1](https://dashflo.net/docs/api/pterodactyl/v1)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24259175"
+	},
+	"item": [
+		{
+			"name": "Application",
+			"item": [
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "List Users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"users"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "List Users",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/application/users",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"application",
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": ""
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 23 Dec 2023 23:20:12 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.24"
+										},
+										{
+											"key": "X-Ratelimit-Limit",
+											"value": "240"
+										},
+										{
+											"key": "X-Ratelimit-Remaining",
+											"value": "239"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"object\": \"list\",\n    \"data\": [\n        {\n            \"object\": \"user\",\n            \"attributes\": {\n                \"id\": 1,\n                \"external_id\": null,\n                \"uuid\": \"5cac411d-af30-4a90-bc5b-a8143dd5128c\",\n                \"username\": \"delta\",\n                \"email\": \"admin@markaplay.net\",\n                \"first_name\": \"vincent\",\n                \"last_name\": \"genest\",\n                \"language\": \"en\",\n                \"root_admin\": true,\n                \"2fa\": false,\n                \"created_at\": \"2023-12-05T23:29:00+00:00\",\n                \"updated_at\": \"2023-12-15T01:57:38+00:00\"\n            }\n        }\n    ],\n    \"meta\": {\n        \"pagination\": {\n            \"total\": 1,\n            \"count\": 1,\n            \"per_page\": 50,\n            \"current_page\": 1,\n            \"total_pages\": 1,\n            \"links\": {}\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "User Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/users/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "User Details",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/application/users/1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"application",
+												"users",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": ""
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 23 Dec 2023 23:23:32 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.24"
+										},
+										{
+											"key": "X-Ratelimit-Limit",
+											"value": "240"
+										},
+										{
+											"key": "X-Ratelimit-Remaining",
+											"value": "237"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"object\": \"user\",\n    \"attributes\": {\n        \"id\": 1,\n        \"external_id\": null,\n        \"uuid\": \"5cac411d-af30-4a90-bc5b-a8143dd5128c\",\n        \"username\": \"delta\",\n        \"email\": \"admin@markaplay.net\",\n        \"first_name\": \"vincent\",\n        \"last_name\": \"genest\",\n        \"language\": \"en\",\n        \"root_admin\": true,\n        \"2fa\": false,\n        \"created_at\": \"2023-12-05T23:29:00+00:00\",\n        \"updated_at\": \"2023-12-15T01:57:38+00:00\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "User Details (Remote)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/users/external/RemoteId1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"users",
+										"external",
+										"RemoteId1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"example10@example.com\",\r\n  \"username\": \"exampleuser\",\r\n  \"first_name\": \"Example\",\r\n  \"last_name\": \"User\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/application/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/users/2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"users",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/users/2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"users",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Nodes",
+					"item": [
+						{
+							"name": "Allocations",
+							"item": [
+								{
+									"name": "List allocations",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/application/nodes/1/allocations",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"application",
+												"nodes",
+												"1",
+												"allocations"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Allocations",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"ip\": \"10.0.0.1\",\r\n  \"ports\": [\r\n    \"25565\"\r\n  ]\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/application/nodes/1/allocations",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"application",
+												"nodes",
+												"1",
+												"allocations"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Allocations",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"ip\": \"10.0.0.1\",\r\n  \"ports\": [\r\n    \"25565\"\r\n  ]\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/application/nodes/1/allocations",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"application",
+												"nodes",
+												"1",
+												"allocations"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "List Nodes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/nodes",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"nodes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Node Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/nodes/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"nodes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Node Configuration",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/nodes/1/configuration",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"nodes",
+										"1",
+										"configuration"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Node",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"New Node\",\r\n  \"location_id\": 1,\r\n  \"fqdn\": \"node2.example.com\",\r\n  \"scheme\": \"https\",\r\n  \"memory\": 10240,\r\n  \"memory_overallocate\": 0,\r\n  \"disk\": 50000,\r\n  \"disk_overallocate\": 0,\r\n  \"upload_size\": 100,\r\n  \"daemon_sftp\": 2022,\r\n  \"daemon_listen\": 8080\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/application/nodes",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"nodes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Node",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Test Renamed\",\r\n  \"description\": \"Test\",\r\n  \"location_id\": 1,\r\n  \"fqdn\": \"pterodactyl.file.properties\",\r\n  \"scheme\": \"https\",\r\n  \"behind_proxy\": false,\r\n  \"maintenance_mode\": false,\r\n  \"memory\": 2048,\r\n  \"memory_overallocate\": 0,\r\n  \"disk\": 5000,\r\n  \"disk_overallocate\": 0,\r\n  \"upload_size\": 100,\r\n  \"daemon_sftp\": 2022,\r\n  \"daemon_listen\": 8080\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/application/nodes/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"nodes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Node",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/nodes/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"nodes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Locations",
+					"item": [
+						{
+							"name": "List Locations",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/locations",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"locations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Location details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/locations/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"locations",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Location",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"short\": \"GB\",\r\n  \"long\": \"London Datacenter\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/application/locations",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"locations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Location",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/locations/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"locations",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Servers",
+					"item": [
+						{
+							"name": "databases management",
+							"item": [
+								{
+									"name": "List Databases",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/application/servers/1/databases",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"application",
+												"servers",
+												"1",
+												"databases"
+											],
+											"query": [
+												{
+													"key": "include",
+													"value": "password,host",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Database Details",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/application/servers/1/databases/1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"application",
+												"servers",
+												"1",
+												"databases",
+												"1"
+											],
+											"query": [
+												{
+													"key": "include",
+													"value": "password,host",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Database",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"database\": \"matches\",\r\n  \"remote\": \"%\",\r\n  \"host\": 4\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/application/servers/1/databases",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"application",
+												"servers",
+												"1",
+												"databases"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Reset Password",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"database\": \"matches\",\r\n  \"remote\": \"%\",\r\n  \"host\": 4\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/application/servers/1/databases/1/reset-password",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"application",
+												"servers",
+												"1",
+												"databases",
+												"1",
+												"reset-password"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Database",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"database\": \"matches\",\r\n  \"remote\": \"%\",\r\n  \"host\": 4\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/application/servers/1/databases/1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"application",
+												"servers",
+												"1",
+												"databases",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "List Servers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/servers",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"servers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Server Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/servers/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"servers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Server Details (external)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/servers/external/RemoteId1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"servers",
+										"external",
+										"RemoteId1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update details",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Gaming\",\r\n  \"user\": 1,\r\n  \"external_id\": \"RemoteID1\",\r\n  \"description\": \"Matt from Wii Sports\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/application/servers/1/details",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"servers",
+										"1",
+										"details"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Build",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"allocation\": 1,\r\n  \"memory\": 512,\r\n  \"swap\": 0,\r\n  \"disk\": 200,\r\n  \"io\": 500,\r\n  \"cpu\": 0,\r\n  \"threads\": null,\r\n  \"feature_limits\": {\r\n    \"databases\": 5,\r\n    \"allocations\": 5,\r\n    \"backups\": 2\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/application/servers/1/build",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"servers",
+										"1",
+										"build"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Startup",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"startup\": \"java -Xms128M -Xmx{{SERVER_MEMORY}}M -jar {{SERVER_JARFILE}}\",\r\n  \"environment\": {\r\n    \"SERVER_JARFILE\": \"server.jar\",\r\n    \"VANILLA_VERSION\": \"latest\"\r\n  },\r\n  \"egg\": 5,\r\n  \"image\": \"quay.io/pterodactyl/core:java\",\r\n  \"skip_scripts\": false\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/application/servers/1/startup",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"servers",
+										"1",
+										"startup"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Server",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Building\",\r\n  \"user\": 1,\r\n  \"egg\": 1,\r\n  \"docker_image\": \"quay.io/pterodactyl/core:java\",\r\n  \"startup\": \"java -Xms128M -Xmx128M -jar server.jar\",\r\n  \"environment\": {\r\n    \"BUNGEE_VERSION\": \"latest\",\r\n    \"SERVER_JARFILE\": \"server.jar\"\r\n  },\r\n  \"limits\": {\r\n    \"memory\": 128,\r\n    \"swap\": 0,\r\n    \"disk\": 512,\r\n    \"io\": 500,\r\n    \"cpu\": 100\r\n  },\r\n  \"feature_limits\": {\r\n    \"databases\": 5,\r\n    \"backups\": 1\r\n  },\r\n  \"allocation\": {\r\n    \"default\": 17\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/application/servers",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"servers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Suspend Server",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/servers/1/suspend",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"servers",
+										"1",
+										"suspend"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Unsuspend Server",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/servers/1/unsuspend",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"servers",
+										"1",
+										"unsuspend"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reinstall Server",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/servers/1/reinstall",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"servers",
+										"1",
+										"reinstall"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Server",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/servers/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"servers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Force Delete Server",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/servers/1/force",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"servers",
+										"1",
+										"force"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Nests",
+					"item": [
+						{
+							"name": "Eggs Management",
+							"item": [
+								{
+									"name": "List Eggs",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/application/nests/1/eggs?include=nest,servers",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"application",
+												"nests",
+												"1",
+												"eggs"
+											],
+											"query": [
+												{
+													"key": "include",
+													"value": "nest,servers"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Egg Details",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/application/nests/1/eggs/1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"application",
+												"nests",
+												"1",
+												"eggs",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "List Nests",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/nests",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"nests"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Nest Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/application/nests/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"application",
+										"nests",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{panel_key}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "Account",
+					"item": [
+						{
+							"name": "Account Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/account",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"account"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2FA details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/account/two-factor",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"account",
+										"two-factor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Enable 2FA",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"code\": \"505134\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/client/account/two-factor",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"account",
+										"two-factor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Disable 2FA",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"password\": \"password\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/client/account/two-factor",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"account",
+										"two-factor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Email",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"example@xample.com\",\r\n  \"password\": \"Password\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/client/account/email",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"account",
+										"email"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Password",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"current_password\": \"Password\",\r\n  \"password\": \"password\",\r\n  \"password_confirmation\": \"password\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/client/account/password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"account",
+										"password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List API Keys",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/account/api-keys",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"account",
+										"api-keys"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create API Key",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"description\": \"Restricted IPs\",\r\n  \"allowed_ips\": [\r\n    \"127.0.0.1\",\r\n    \"192.168.0.1\"\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/client/account/api-keys",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"account",
+										"api-keys"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete API Key",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"description\": \"Restricted IPs\",\r\n  \"allowed_ips\": [\r\n    \"127.0.0.1\",\r\n    \"192.168.0.1\"\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/client/account/api-keys/NWKMYMT2Mrav0Iq2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"account",
+										"api-keys",
+										"NWKMYMT2Mrav0Iq2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Server",
+					"item": [
+						{
+							"name": "Databases",
+							"item": [
+								{
+									"name": "List Databases",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/client/servers/1a7ce997/databases",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"client",
+												"servers",
+												"1a7ce997",
+												"databases"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Database",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"database\": \"bans\",\r\n  \"remote\": \"%\"\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/client/servers/1a7ce997/databases",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"client",
+												"servers",
+												"1a7ce997",
+												"databases"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Rotate Password",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/client/servers/1a7ce997/databases/bEY4yAD5/rotate-password",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"client",
+												"servers",
+												"1a7ce997",
+												"databases",
+												"bEY4yAD5",
+												"rotate-password"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Database",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/client/servers/1a7ce997/databases/y9YVxO4V",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"client",
+												"servers",
+												"1a7ce997",
+												"databases",
+												"y9YVxO4V"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "File Manager",
+							"item": [
+								{
+									"name": "List Files",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/client/servers/1a7ce997/files/list?directory=%2Fcache",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"client",
+												"servers",
+												"1a7ce997",
+												"files",
+												"list"
+											],
+											"query": [
+												{
+													"key": "directory",
+													"value": "%2Fcache"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get File Contents",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/client/servers/1a7ce997/files/contents?file=%2Fpaper.yml",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"client",
+												"servers",
+												"1a7ce997",
+												"files",
+												"contents"
+											],
+											"query": [
+												{
+													"key": "file",
+													"value": "%2Fpaper.yml"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Download Dile",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/client/servers/1a7ce997/files/download?file=%2Feula.txt",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"client",
+												"servers",
+												"1a7ce997",
+												"files",
+												"download"
+											],
+											"query": [
+												{
+													"key": "file",
+													"value": "%2Feula.txt"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Rename File",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"root\": \"/\",\r\n  \"files\": [\r\n    {\r\n      \"from\": \"data\",\r\n      \"to\": \"abc\"\r\n    }\r\n  ]\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/client/servers/1a7ce997/files/rename",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"client",
+												"servers",
+												"1a7ce997",
+												"files",
+												"rename"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Copy File",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"location\": \"/server.properties\"\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/client/servers/1a7ce997/files/copy",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"client",
+												"servers",
+												"1a7ce997",
+												"files",
+												"copy"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Write File",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).\r\n#You also agree that tacos are tasty, and the best food in the world.\r\n#Wed Dec 25 05:20:41 UTC 2019\r\neula=true"
+										},
+										"url": {
+											"raw": "{{url}}/client/servers/1a7ce997/files/write?file=%2Feula.txt",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"client",
+												"servers",
+												"1a7ce997",
+												"files",
+												"write"
+											],
+											"query": [
+												{
+													"key": "file",
+													"value": "%2Feula.txt"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Compress File",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"root\": \"/\",\r\n  \"files\": [\r\n    \"abc\"\r\n  ]\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/client/servers/1a7ce997/files/compress",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"client",
+												"servers",
+												"1a7ce997",
+												"files",
+												"compress"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Decompress File",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"root\": \"/\",\r\n  \"file\": \"archive-2020-08-23T220655Z.tar.gz\"\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/client/servers/1a7ce997/files/decompress",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"client",
+												"servers",
+												"1a7ce997",
+												"files",
+												"decompress"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete File",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"root\": \"/maps\",\r\n  \"files\": [\r\n    \"worlds\"\r\n  ]\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/client/servers/1a7ce997/files/delete",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"client",
+												"servers",
+												"1a7ce997",
+												"files",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Folder",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"root\": \"/maps\",\r\n  \"name\": \"worlds\"\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/client/servers/1a7ce997/files/create-folder",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"client",
+												"servers",
+												"1a7ce997",
+												"files",
+												"create-folder"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Upload File",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"root\": \"/maps\",\r\n  \"files\": [\r\n    \"worlds\"\r\n  ]\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/client/servers/1a7ce997/files/upload",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"client",
+												"servers",
+												"1a7ce997",
+												"files",
+												"upload"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Schedules",
+							"item": []
+						},
+						{
+							"name": "Network",
+							"item": []
+						},
+						{
+							"name": "Users",
+							"item": []
+						},
+						{
+							"name": "Backups",
+							"item": []
+						},
+						{
+							"name": "Startup",
+							"item": []
+						},
+						{
+							"name": "Settings",
+							"item": []
+						},
+						{
+							"name": "Server Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/servers/1a7ce997",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"servers",
+										"1a7ce997"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Console Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/servers/1a7ce997/websocket",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"servers",
+										"1a7ce997",
+										"websocket"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Resource Usage",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/servers/1a7ce997/resources",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"servers",
+										"1a7ce997",
+										"resources"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Send Command",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"command\": \"say CodeCo says Hi!\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/client/servers/1a7ce997/command",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"servers",
+										"1a7ce997",
+										"command"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Power State",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"signal\": \"start\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/client/servers/1a7ce997/power",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"servers",
+										"1a7ce997",
+										"power"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "List Servers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/client",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Permissions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/client/permissions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"client",
+								"permissions"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "yourapplicationtoken",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "inherit"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://example.com/api",
+			"type": "string"
+		}
+	]
+}
