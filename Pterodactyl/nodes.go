@@ -118,8 +118,8 @@ func GetNode(pterodactylCfg PterodactylConfig, id int) (Node, error) {
 	return node, nil
 }
 
-func CreateNode(pterodactylCfg PterodactylConfig, node CreateNodeRequest) (CreateNode, error) {
-	var result CreateNode
+func CreateNode(pterodactylCfg PterodactylConfig, node CreateNodeRequest) (Node, error) {
+	var result Node
 	jsonBody, err := json.Marshal(node)
 	if err != nil {
 		return result, err
@@ -131,8 +131,8 @@ func CreateNode(pterodactylCfg PterodactylConfig, node CreateNodeRequest) (Creat
 	return result, nil
 }
 
-func UpdateNode(pterodactylCfg PterodactylConfig, id int, node CreateNodeRequest) (CreateNode, error) {
-	var result CreateNode
+func UpdateNode(pterodactylCfg PterodactylConfig, id int, node CreateNodeRequest) (Node, error) {
+	var result Node
 	jsonBody, err := json.Marshal(node)
 	if err != nil {
 		return result, err
