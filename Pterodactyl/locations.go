@@ -56,7 +56,7 @@ func (c *Client) GetLocations() (Locations, error) {
 	return result, nil
 }
 
-func (c *Client) GetLocation( id int) (Location, error) {
+func (c *Client) GetLocation(id int) (Location, error) {
 	var result Location
 	var path string
 	path = fmt.Sprintf("%s/%d", locationsPath, id)
@@ -67,7 +67,7 @@ func (c *Client) GetLocation( id int) (Location, error) {
 	return result, nil
 }
 
-func (c *Client)  CreateLocation(short string, long string) (Location, error) {
+func (c *Client) CreateLocation(short string, long string) (Location, error) {
 	var result Location
 	var body = map[string]string{
 		"short": short,

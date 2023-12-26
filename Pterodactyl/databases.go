@@ -68,7 +68,7 @@ const databasePath = "/application/servers/%d/databases"
 func (c *Client) GetDatabases(serverId int) (Databases, error) {
 	var databases Databases
 	path := fmt.Sprintf(databasePath, serverId)
-	err := c.ApiCall( path, "GET", nil, &databases)
+	err := c.ApiCall(path, "GET", nil, &databases)
 	if err != nil {
 		return databases, err
 	}
@@ -99,7 +99,7 @@ func (c *Client) CreateDatabase(serverId int, database Database) (Database, erro
 	return createdDatabase, nil
 }
 
-func(c *Client) DeleteDatabase(serverId, id int) error {
+func (c *Client) DeleteDatabase(serverId, id int) error {
 	path := fmt.Sprintf("%s/%d", fmt.Sprintf(databasePath, serverId), id)
 	err := c.ApiCall(path, "DELETE", nil, nil)
 	if err != nil {

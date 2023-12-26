@@ -241,7 +241,7 @@ func (c *Client) SuspendServer(id int) error {
 	return nil
 }
 
-func (c *Client) UnsuspendServer( id int) error {
+func (c *Client) UnsuspendServer(id int) error {
 	var path string
 	path = fmt.Sprintf("%s/%d/unsuspend", serverPath, id)
 	err := c.ApiCall(path, "POST", nil, nil)
@@ -251,7 +251,7 @@ func (c *Client) UnsuspendServer( id int) error {
 	return nil
 }
 
-func (c *Client) ReinstallServer( id int) error {
+func (c *Client) ReinstallServer(id int) error {
 	var path string
 	path = fmt.Sprintf("%s/%d/reinstall", serverPath, id)
 	err := c.ApiCall(path, "POST", nil, nil)

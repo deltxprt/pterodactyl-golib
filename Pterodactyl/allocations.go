@@ -48,7 +48,7 @@ func (c *Client) GetAllocations(nodeId int) (Allocations, error) {
 	return allocations, nil
 }
 
-func (c *Client)  CreateAllocations(nodeId int, request CreateAllocationsRequest) (Allocations, error) {
+func (c *Client) CreateAllocations(nodeId int, request CreateAllocationsRequest) (Allocations, error) {
 	var allocations Allocations
 	jsonRequest, err := json.Marshal(request)
 	if err != nil {

@@ -99,7 +99,7 @@ type CreateNodeRequest struct {
 
 const nodesPath = "/application/nodes"
 
-func (c *Client)  GetNodes() (Nodes, error) {
+func (c *Client) GetNodes() (Nodes, error) {
 	var nodes Nodes
 	err := c.ApiCall(nodesPath, "GET", nil, &nodes)
 	if err != nil {
@@ -118,7 +118,7 @@ func (c *Client) GetNode(id int) (Node, error) {
 	return node, nil
 }
 
-func (c *Client) CreateNode( node CreateNodeRequest) (Node, error) {
+func (c *Client) CreateNode(node CreateNodeRequest) (Node, error) {
 	var result Node
 	jsonBody, err := json.Marshal(node)
 	if err != nil {

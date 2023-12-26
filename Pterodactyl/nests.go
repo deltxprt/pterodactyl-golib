@@ -47,7 +47,7 @@ type Nest struct {
 
 const nestPath = "/application/nests"
 
-func (c *Client)  GetNests() (Nests, error) {
+func (c *Client) GetNests() (Nests, error) {
 	var nests Nests
 	err := c.ApiCall(nestPath, "GET", nil, &nests)
 	if err != nil {
