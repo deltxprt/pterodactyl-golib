@@ -92,7 +92,7 @@ func (c *Client) CreateDatabase(serverId int, database Database) (Database, erro
 	if err != nil {
 		return createdDatabase, err
 	}
-	err = c.ApiCall(pterodactylCfg, path, "POST", body, &createdDatabase)
+	err = c.ApiCall(path, "POST", body, &createdDatabase)
 	if err != nil {
 		return createdDatabase, err
 	}
@@ -101,7 +101,7 @@ func (c *Client) CreateDatabase(serverId int, database Database) (Database, erro
 
 func(c *Client) DeleteDatabase(serverId, id int) error {
 	path := fmt.Sprintf("%s/%d", fmt.Sprintf(databasePath, serverId), id)
-	err := c.ApiCall( path, "DELETE", nil, nil)
+	err := c.ApiCall(path, "DELETE", nil, nil)
 	if err != nil {
 		return err
 	}

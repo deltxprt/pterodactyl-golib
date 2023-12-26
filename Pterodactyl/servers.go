@@ -159,7 +159,7 @@ const serverPath = "/application/servers"
 
 func (c *Client) GetServers() (Servers, error) {
 	var servers Servers
-	err := c.ApiCall( serverPath, "GET", nil, &servers)
+	err := c.ApiCall(serverPath, "GET", nil, &servers)
 	if err != nil {
 		return servers, err
 	}
@@ -183,7 +183,7 @@ func (c *Client) UpdateServer(id int, request UpdateServerRequest) (Server, erro
 	if err != nil {
 		return server, err
 	}
-	err = c.ApiCall( path, "PATCH", body, &server)
+	err = c.ApiCall(path, "PATCH", body, &server)
 	if err != nil {
 		return server, err
 	}
@@ -224,7 +224,7 @@ func (c *Client) CreateServer(request CreateServerRequest) (Server, error) {
 	if err != nil {
 		return server, err
 	}
-	err = c.ApiCall("POST", body, &server)
+	err = c.ApiCall(serverPath, "POST", body, &server)
 	if err != nil {
 		return server, err
 	}
@@ -232,7 +232,8 @@ func (c *Client) CreateServer(request CreateServerRequest) (Server, error) {
 }
 
 func (c *Client) SuspendServer(id int) error {
-	path := fmt.Sprintf("%s/%d/suspend", serverPath, id)
+	var path string
+	path = fmt.Sprintf("%s/%d/suspend", serverPath, id)
 	err := c.ApiCall(path, "POST", nil, nil)
 	if err != nil {
 		return err
@@ -241,7 +242,8 @@ func (c *Client) SuspendServer(id int) error {
 }
 
 func (c *Client) UnsuspendServer( id int) error {
-	path := fmt.Sprintf("%s/%d/unsuspend", serverPath, id)
+	var path string
+	path = fmt.Sprintf("%s/%d/unsuspend", serverPath, id)
 	err := c.ApiCall(path, "POST", nil, nil)
 	if err != nil {
 		return err
@@ -250,7 +252,8 @@ func (c *Client) UnsuspendServer( id int) error {
 }
 
 func (c *Client) ReinstallServer( id int) error {
-	path := fmt.Sprintf("%s/%d/reinstall", serverPath, id)
+	var path string
+	path = fmt.Sprintf("%s/%d/reinstall", serverPath, id)
 	err := c.ApiCall(path, "POST", nil, nil)
 	if err != nil {
 		return err
@@ -259,8 +262,9 @@ func (c *Client) ReinstallServer( id int) error {
 }
 
 func (c *Client) DeleteServer(id int) error {
-	path := fmt.Sprintf("%s/%d", serverPath, id)
-	err := c.ApiCall( path, "DELETE", nil, nil)
+	var path string
+	path = fmt.Sprintf("%s/%d", serverPath, id)
+	err := c.ApiCall(path, "DELETE", nil, nil)
 	if err != nil {
 		return err
 	}
