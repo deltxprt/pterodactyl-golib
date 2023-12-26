@@ -99,53 +99,53 @@ type CreateNodeRequest struct {
 
 const nodesPath = "/application/nodes"
 
-func GetNodes(pterodactylCfg PterodactylConfig) (Nodes, error) {
+func (c *Client)  GetNodes() (Nodes, error) {
 	var nodes Nodes
-	err := ApiCall(pterodactylCfg, nodesPath, "GET", nil, &nodes)
+	err := c.ApiCall(nodesPath, "GET", nil, &nodes)
 	if err != nil {
 		return nodes, err
 	}
 	return nodes, nil
 }
 
-func GetNode(pterodactylCfg PterodactylConfig, id int) (Node, error) {
+func (c *Client) GetNode(id int) (Node, error) {
 	var node Node
 	nodePath := fmt.Sprintf("%s/%d", nodesPath, id)
-	err := ApiCall(pterodactylCfg, nodePath, "GET", nil, &node)
+	err := c.ApiCall(nodePath, "GET", nil, &node)
 	if err != nil {
 		return node, err
 	}
 	return node, nil
 }
 
-func CreateNode(pterodactylCfg PterodactylConfig, node CreateNodeRequest) (Node, error) {
+func (c *Client) CreateNode( node CreateNodeRequest) (Node, error) {
 	var result Node
 	jsonBody, err := json.Marshal(node)
 	if err != nil {
 		return result, err
 	}
-	err = ApiCall(pterodactylCfg, nodesPath, "POST", jsonBody, &result)
+	err = c.ApiCall(nodesPath, "POST", jsonBody, &result)
 	if err != nil {
 		return result, err
 	}
 	return result, nil
 }
 
-func UpdateNode(pterodactylCfg PterodactylConfig, id int, node CreateNodeRequest) (Node, error) {
+func (c *Client) UpdateNode(id int, node CreateNodeRequest) (Node, error) {
 	var result Node
 	jsonBody, err := json.Marshal(node)
 	if err != nil {
 		return result, err
 	}
-	err = ApiCall(pterodactylCfg, fmt.Sprintf("%s/%d", nodesPath, id), "PATCH", jsonBody, &result)
+	err = c.ApiCall(fmt.Sprintf("%s/%d", nodesPath, id), "PATCH", jsonBody, &result)
 	if err != nil {
 		return result, err
 	}
 	return result, nil
 }
 
-func DeleteNode(pterodactylCfg PterodactylConfig, id int) error {
-	err := ApiCall(pterodactylCfg, fmt.Sprintf("%s/%d", nodesPath, id), "DELETE", nil, nil)
+func (c *Client) DeleteNode(id int) error {
+	err := c.ApiCall(fmt.Sprintf("%s/%d", nodesPath, id), "DELETE", nil, nil)
 	if err != nil {
 		return err
 	}

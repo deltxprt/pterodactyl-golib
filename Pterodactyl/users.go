@@ -61,26 +61,26 @@ type User struct {
 
 const usersPath = "/application/users"
 
-func GetUsers(pterodactylCfg PterodactylConfig) (Users, error) {
+func (c *Client) GetUsers() (Users, error) {
 	var users Users
-	err := ApiCall(pterodactylCfg, usersPath, "GET", nil, &users)
+	err := c.ApiCall(usersPath, "GET", nil, &users)
 	if err != nil {
 		return users, err
 	}
 	return users, nil
 }
 
-func GetUser(pterodactylCfg PterodactylConfig, id int) (User, error) {
+func (c *Client) GetUser(id int) (User, error) {
 	var user User
 	userPath := fmt.Sprintf("%s/%d", usersPath, id)
-	err := ApiCall(pterodactylCfg, userPath, "GET", nil, &user)
+	err := c.ApiCall(userPath, "GET", nil, &user)
 	if err != nil {
 		return user, err
 	}
 	return user, nil
 }
 
-func CreateUser(pterodactylCfg PterodactylConfig, username string, email string, firstName string, lastName string) (User, error) {
+func (c *Client) CreateUser(username string, email string, firstName string, lastName string) (User, error) {
 	var user User
 	var body = map[string]string{
 		"username":   username,
@@ -92,14 +92,14 @@ func CreateUser(pterodactylCfg PterodactylConfig, username string, email string,
 	if err != nil {
 		return user, err
 	}
-	err = ApiCall(pterodactylCfg, usersPath, "POST", jsonBody, &user)
+	err = c.ApiCall(usersPath, "POST", jsonBody, &user)
 	if err != nil {
 		return user, err
 	}
 	return user, nil
 }
 
-func UpdateUser(pterodactylCfg PterodactylConfig, id int, username string, email string, firstName string, lastName string, language string, password string) (User, error) {
+func (c *Client) UpdateUser(id int, username string, email string, firstName string, lastName string, language string, password string) (User, error) {
 	var user User
 	var body = map[string]string{
 		"email":      email,
@@ -114,16 +114,16 @@ func UpdateUser(pterodactylCfg PterodactylConfig, id int, username string, email
 		return user, err
 	}
 	userPath := fmt.Sprintf("%s/%d", usersPath, id)
-	err = ApiCall(pterodactylCfg, userPath, "PATCH", jsonBody, &user)
+	err = c.ApiCall(userPath, "PATCH", jsonBody, &user)
 	if err != nil {
 		return user, err
 	}
 	return user, nil
 }
 
-func DeleteUser(pterodactylCfg PterodactylConfig, id int) error {
+func (c *Client) DeleteUser(id int) error {
 	userPath := fmt.Sprintf("%s/%d", usersPath, id)
-	err := ApiCall(pterodactylCfg, userPath, "DELETE", nil, nil)
+	err := c.ApiCall(userPath, "DELETE", nil, nil)
 	if err != nil {
 		return err
 	}

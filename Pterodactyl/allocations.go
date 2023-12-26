@@ -39,30 +39,30 @@ type CreateAllocationsRequest struct {
 
 const allocationsPath = "/application/nodes/%d/allocations"
 
-func GetAllocations(pterodactylCfg PterodactylConfig, nodeId int) (Allocations, error) {
+func (c *Client) GetAllocations(nodeId int) (Allocations, error) {
 	var allocations Allocations
-	err := ApiCall(pterodactylCfg, fmt.Sprintf(allocationsPath, nodeId), "GET", nil, &allocations)
+	err := c.ApiCall(fmt.Sprintf(allocationsPath, nodeId), "GET", nil, &allocations)
 	if err != nil {
 		return allocations, err
 	}
 	return allocations, nil
 }
 
-func CreateAllocations(pterodactylCfg PterodactylConfig, nodeId int, request CreateAllocationsRequest) (Allocations, error) {
+func (c *Client)  CreateAllocations(nodeId int, request CreateAllocationsRequest) (Allocations, error) {
 	var allocations Allocations
 	jsonRequest, err := json.Marshal(request)
 	if err != nil {
 		return allocations, err
 	}
-	err = ApiCall(pterodactylCfg, fmt.Sprintf(allocationsPath, nodeId), "POST", jsonRequest, &allocations)
+	err = c.ApiCall(fmt.Sprintf(allocationsPath, nodeId), "POST", jsonRequest, &allocations)
 	if err != nil {
 		return allocations, err
 	}
 	return allocations, nil
 }
 
-func DeleteAllocation(pterodactylCfg PterodactylConfig, nodeId int, allocationId int) error {
-	err := ApiCall(pterodactylCfg, fmt.Sprintf("%s/%d", fmt.Sprintf(allocationsPath, nodeId), allocationId), "DELETE", nil, nil)
+func (c *Client) DeleteAllocation(nodeId int, allocationId int) error {
+	err := c.ApiCall(fmt.Sprintf("%s/%d", fmt.Sprintf(allocationsPath, nodeId), allocationId), "DELETE", nil, nil)
 	if err != nil {
 		return err
 	}

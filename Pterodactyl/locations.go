@@ -47,42 +47,25 @@ type Location struct {
 
 const locationsPath = "/application/locations"
 
-func GetLocations(pterodactylCfg PterodactylConfig) (Locations, error) {
+func (c *Client) GetLocations() (Locations, error) {
 	var result Locations
-	err := ApiCall(pterodactylCfg, locationsPath, "GET", nil, &result)
+	err := c.ApiCall(locationsPath, "GET", nil, &result)
 	if err != nil {
 		return result, err
 	}
 	return result, nil
 }
 
-func GetLocation(pterodactylCfg PterodactylConfig, id int) (Location, error) {
+func (c *Client) GetLocation( id int) (Location, error) {
 	var result Location
-	err := ApiCall(pterodactylCfg, fmt.Sprintf("%s/%d", locationsPath, id), "GET", nil, &result)
+	err := c.ApiCall(fmt.Sprintf("%s/%d", locationsPath, id), "GET", nil, &result)
 	if err != nil {
 		return result, err
 	}
 	return result, nil
 }
 
-func CreateLocation(pterodactylCfg PterodactylConfig, short string, long string) (Location, error) {
-	var result Location
-	var body = map[string]string{
-		"short": short,
-		"long":  long,
-	}
-	jsonBody, err := json.Marshal(body)
-	if err != nil {
-		return result, err
-	}
-	err = ApiCall(pterodactylCfg, locationsPath, "POST", jsonBody, &result)
-	if err != nil {
-		return result, err
-	}
-	return result, nil
-}
-
-func UpdateLocation(pterodactylCfg PterodactylConfig, id int, short string, long string) (Location, error) {
+func (c *Client)  CreateLocation(short string, long string) (Location, error) {
 	var result Location
 	var body = map[string]string{
 		"short": short,
@@ -92,15 +75,32 @@ func UpdateLocation(pterodactylCfg PterodactylConfig, id int, short string, long
 	if err != nil {
 		return result, err
 	}
-	err = ApiCall(pterodactylCfg, fmt.Sprintf("%s/%d", locationsPath, id), "PATCH", jsonBody, &result)
+	err = c.ApiCall(locationsPath, "POST", jsonBody, &result)
 	if err != nil {
 		return result, err
 	}
 	return result, nil
 }
 
-func DeleteLocation(pterodactylCfg PterodactylConfig, id int) error {
-	err := ApiCall(pterodactylCfg, fmt.Sprintf("%s/%d", locationsPath, id), "DELETE", nil, nil)
+func (c *Client) UpdateLocation(id int, short string, long string) (Location, error) {
+	var result Location
+	var body = map[string]string{
+		"short": short,
+		"long":  long,
+	}
+	jsonBody, err := json.Marshal(body)
+	if err != nil {
+		return result, err
+	}
+	err = c.ApiCall(fmt.Sprintf("%s/%d", locationsPath, id), "PATCH", jsonBody, &result)
+	if err != nil {
+		return result, err
+	}
+	return result, nil
+}
+
+func (c *Client) DeleteLocation(id int) error {
+	err := c.ApiCall(fmt.Sprintf("%s/%d", locationsPath, id), "DELETE", nil, nil)
 	if err != nil {
 		return err
 	}

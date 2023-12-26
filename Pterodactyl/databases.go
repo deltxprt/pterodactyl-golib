@@ -65,52 +65,52 @@ type Database struct {
 
 const databasePath = "/application/servers/%d/databases"
 
-func GetDatabases(pterodactylCfg PterodactylConfig, serverId int) (Databases, error) {
+func (c *Client) GetDatabases(serverId int) (Databases, error) {
 	var databases Databases
 	path := fmt.Sprintf(databasePath, serverId)
-	err := ApiCall(pterodactylCfg, path, "GET", nil, &databases)
+	err := c.ApiCall( path, "GET", nil, &databases)
 	if err != nil {
 		return databases, err
 	}
 	return databases, nil
 }
 
-func GetDatabase(pterodactylCfg PterodactylConfig, serverId, id int) (Database, error) {
+func (c *Client) GetDatabase(serverId, id int) (Database, error) {
 	var database Database
 	path := fmt.Sprintf("%s/%d", fmt.Sprintf(databasePath, serverId), id)
-	err := ApiCall(pterodactylCfg, path, "GET", nil, &database)
+	err := c.ApiCall(path, "GET", nil, &database)
 	if err != nil {
 		return database, err
 	}
 	return database, nil
 }
 
-func CreateDatabase(pterodactylCfg PterodactylConfig, serverId int, database Database) (Database, error) {
+func (c *Client) CreateDatabase(serverId int, database Database) (Database, error) {
 	var createdDatabase Database
 	path := fmt.Sprintf(databasePath, serverId)
 	body, err := json.Marshal(database)
 	if err != nil {
 		return createdDatabase, err
 	}
-	err = ApiCall(pterodactylCfg, path, "POST", body, &createdDatabase)
+	err = c.ApiCall(pterodactylCfg, path, "POST", body, &createdDatabase)
 	if err != nil {
 		return createdDatabase, err
 	}
 	return createdDatabase, nil
 }
 
-func DeleteDatabase(pterodactylCfg PterodactylConfig, serverId, id int) error {
+func(c *Client) DeleteDatabase(serverId, id int) error {
 	path := fmt.Sprintf("%s/%d", fmt.Sprintf(databasePath, serverId), id)
-	err := ApiCall(pterodactylCfg, path, "DELETE", nil, nil)
+	err := c.ApiCall( path, "DELETE", nil, nil)
 	if err != nil {
 		return err
 	}
 	return nil
 }
 
-func ResetDatabasePassword(pterodactylCfg PterodactylConfig, serverId, id int) error {
+func (c *Client) ResetDatabasePassword(serverId, id int) error {
 	path := fmt.Sprintf("%s/%d/reset-password", fmt.Sprintf(databasePath, serverId), id)
-	err := ApiCall(pterodactylCfg, path, "POST", nil, nil)
+	err := c.ApiCall(path, "POST", nil, nil)
 	if err != nil {
 		return err
 	}

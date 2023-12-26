@@ -9,20 +9,20 @@ import (
 	"strings"
 )
 
-type PterodactylConfig struct {
+type Client struct {
 	URL    string `json:"url"`
 	ApiKey string `json:"apikey"`
 }
 
-func ApiCall(pterodactylCfg PterodactylConfig, path string, method string, body []byte, result interface{}) error {
-	url := pterodactylCfg.URL + path
+func (c *Client) ApiCall(path string, method string, body []byte, result interface{}) error {
+	url := c.URL + path
 
 	request, err := http.NewRequest(method, url, strings.NewReader(string(body)))
 	if err != nil {
 		return err
 	}
 
-	request.Header.Set("Authorization", pterodactylCfg.ApiKey)
+	request.Header.Set("Authorization", c.ApiKey)
 
 	client := &http.Client{}
 	resp, err := client.Do(request)
@@ -46,4 +46,11 @@ func ApiCall(pterodactylCfg PterodactylConfig, path string, method string, body 
 		return err
 	}
 	return nil
+}
+
+func NewClient(apiUrl string, token string) (client *Client, err error) {
+
+	client = &Client{URL: apiUrl, ApiKey: token}
+
+	return client, nil
 }
