@@ -58,7 +58,9 @@ func (c *Client) GetLocations() (Locations, error) {
 
 func (c *Client) GetLocation( id int) (Location, error) {
 	var result Location
-	err := c.ApiCall(fmt.Sprintf("%s/%d", locationsPath, id), "GET", nil, &result)
+	var path string
+	path = fmt.Sprintf("%s/%d", locationsPath, id)
+	err := c.ApiCall(path, "GET", nil, &result)
 	if err != nil {
 		return result, err
 	}

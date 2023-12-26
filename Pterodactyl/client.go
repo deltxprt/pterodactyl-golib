@@ -22,7 +22,7 @@ func (c *Client) ApiCall(path string, method string, body []byte, result interfa
 		return err
 	}
 
-	request.Header.Set("Authorization", c.ApiKey)
+	request.Header.Set("Authorization", "Bearer "+c.ApiKey)
 
 	client := &http.Client{}
 	resp, err := client.Do(request)
