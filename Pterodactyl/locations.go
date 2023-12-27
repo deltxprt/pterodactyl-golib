@@ -11,11 +11,11 @@ type Locations struct {
 	Data   []struct {
 		Object     string `json:"object"`
 		Attributes struct {
-			Id        int         `json:"id"`
-			Short     string      `json:"short"`
-			Long      interface{} `json:"long"`
-			UpdatedAt time.Time   `json:"updated_at"`
-			CreatedAt time.Time   `json:"created_at"`
+			Id        int       `json:"id"`
+			Short     string    `json:"short"`
+			Long      string    `json:"long"`
+			UpdatedAt time.Time `json:"updated_at"`
+			CreatedAt time.Time `json:"created_at"`
 		} `json:"attributes"`
 	} `json:"data"`
 	Meta struct {
@@ -34,11 +34,11 @@ type Locations struct {
 type Location struct {
 	Object     string `json:"object"`
 	Attributes struct {
-		Id        int         `json:"id"`
-		Short     string      `json:"short"`
-		Long      interface{} `json:"long"`
-		UpdatedAt time.Time   `json:"updated_at"`
-		CreatedAt time.Time   `json:"created_at"`
+		Id        int       `json:"id"`
+		Short     string    `json:"short"`
+		Long      string    `json:"long"`
+		UpdatedAt time.Time `json:"updated_at"`
+		CreatedAt time.Time `json:"created_at"`
 	} `json:"attributes"`
 	Meta struct {
 		Resource string `json:"resource,omitempty"`

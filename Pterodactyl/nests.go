@@ -26,8 +26,6 @@ type Nests struct {
 			PerPage     int `json:"per_page"`
 			CurrentPage int `json:"current_page"`
 			TotalPages  int `json:"total_pages"`
-			Links       struct {
-			} `json:"links"`
 		} `json:"pagination"`
 	} `json:"meta"`
 }

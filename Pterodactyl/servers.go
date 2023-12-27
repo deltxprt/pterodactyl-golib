@@ -39,10 +39,10 @@ type Servers struct {
 			Nest       int `json:"nest"`
 			Egg        int `json:"egg"`
 			Container  struct {
-				StartupCommand string            `json:"startup_command"`
-				Image          string            `json:"image"`
-				Installed      int               `json:"installed"`
-				Environment    map[string]string `json:"environment"`
+				StartupCommand string                 `json:"startup_command"`
+				Image          string                 `json:"image"`
+				Installed      int                    `json:"installed"`
+				Environment    map[string]interface{} `json:"environment"`
 			} `json:"container"`
 			UpdatedAt time.Time `json:"updated_at"`
 			CreatedAt time.Time `json:"created_at"`
@@ -55,8 +55,6 @@ type Servers struct {
 			PerPage     int `json:"per_page"`
 			CurrentPage int `json:"current_page"`
 			TotalPages  int `json:"total_pages"`
-			Links       struct {
-			} `json:"links"`
 		} `json:"pagination"`
 	} `json:"meta"`
 }
@@ -92,10 +90,10 @@ type Server struct {
 		Nest       int `json:"nest"`
 		Egg        int `json:"egg"`
 		Container  struct {
-			StartupCommand string            `json:"startup_command"`
-			Image          string            `json:"image"`
-			Installed      int               `json:"installed"`
-			Environment    map[string]string `json:"environment"`
+			StartupCommand string                 `json:"startup_command"`
+			Image          string                 `json:"image"`
+			Installed      int                    `json:"installed"`
+			Environment    map[string]interface{} `json:"environment"`
 		} `json:"container"`
 		UpdatedAt time.Time `json:"updated_at"`
 		CreatedAt time.Time `json:"created_at"`
@@ -125,20 +123,20 @@ type UpdateServerBuildRequest struct {
 }
 
 type UpdateServerStartupRequest struct {
-	Startup     string            `json:"startup"`
-	Environment map[string]string `json:"environment"`
-	Egg         int               `json:"egg"`
-	Image       string            `json:"image"`
-	SkipScripts bool              `json:"skip_scripts"`
+	Startup     string      `json:"startup"`
+	Environment interface{} `json:"environment"`
+	Egg         int         `json:"egg"`
+	Image       string      `json:"image"`
+	SkipScripts bool        `json:"skip_scripts"`
 }
 
 type CreateServerRequest struct {
-	Name        string            `json:"name"`
-	User        int               `json:"user"`
-	Egg         int               `json:"egg"`
-	DockerImage string            `json:"docker_image"`
-	Startup     string            `json:"startup"`
-	Environment map[string]string `json:"environment"`
+	Name        string      `json:"name"`
+	User        int         `json:"user"`
+	Egg         int         `json:"egg"`
+	DockerImage string      `json:"docker_image"`
+	Startup     string      `json:"startup"`
+	Environment interface{} `json:"environment"`
 	Limits      struct {
 		Memory int `json:"memory"`
 		Swap   int `json:"swap"`

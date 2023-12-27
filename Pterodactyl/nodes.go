@@ -11,26 +11,26 @@ type Nodes struct {
 	Data   []struct {
 		Object     string `json:"object"`
 		Attributes struct {
-			Id                 int         `json:"id"`
-			Uuid               string      `json:"uuid"`
-			Public             bool        `json:"public"`
-			Name               string      `json:"name"`
-			Description        interface{} `json:"description"`
-			LocationId         int         `json:"location_id"`
-			Fqdn               string      `json:"fqdn"`
-			Scheme             string      `json:"scheme"`
-			BehindProxy        bool        `json:"behind_proxy"`
-			MaintenanceMode    bool        `json:"maintenance_mode"`
-			Memory             int         `json:"memory"`
-			MemoryOverallocate int         `json:"memory_overallocate"`
-			Disk               int         `json:"disk"`
-			DiskOverallocate   int         `json:"disk_overallocate"`
-			UploadSize         int         `json:"upload_size"`
-			DaemonListen       int         `json:"daemon_listen"`
-			DaemonSftp         int         `json:"daemon_sftp"`
-			DaemonBase         string      `json:"daemon_base"`
-			CreatedAt          time.Time   `json:"created_at"`
-			UpdatedAt          time.Time   `json:"updated_at"`
+			Id                 int       `json:"id"`
+			Uuid               string    `json:"uuid"`
+			Public             bool      `json:"public"`
+			Name               string    `json:"name"`
+			Description        string    `json:"description"`
+			LocationId         int       `json:"location_id"`
+			Fqdn               string    `json:"fqdn"`
+			Scheme             string    `json:"scheme"`
+			BehindProxy        bool      `json:"behind_proxy"`
+			MaintenanceMode    bool      `json:"maintenance_mode"`
+			Memory             int       `json:"memory"`
+			MemoryOverallocate int       `json:"memory_overallocate"`
+			Disk               int       `json:"disk"`
+			DiskOverallocate   int       `json:"disk_overallocate"`
+			UploadSize         int       `json:"upload_size"`
+			DaemonListen       int       `json:"daemon_listen"`
+			DaemonSftp         int       `json:"daemon_sftp"`
+			DaemonBase         string    `json:"daemon_base"`
+			CreatedAt          time.Time `json:"created_at"`
+			UpdatedAt          time.Time `json:"updated_at"`
 			AllocatedResources struct {
 				Memory int `json:"memory"`
 				Disk   int `json:"disk"`
@@ -44,8 +44,6 @@ type Nodes struct {
 			PerPage     int `json:"per_page"`
 			CurrentPage int `json:"current_page"`
 			TotalPages  int `json:"total_pages"`
-			Links       struct {
-			} `json:"links"`
 		} `json:"pagination"`
 	} `json:"meta"`
 }
@@ -53,26 +51,26 @@ type Nodes struct {
 type Node struct {
 	Object     string `json:"object"`
 	Attributes struct {
-		Id                 int         `json:"id"`
-		Uuid               string      `json:"uuid"`
-		Public             bool        `json:"public"`
-		Name               string      `json:"name"`
-		Description        interface{} `json:"description"`
-		LocationId         int         `json:"location_id"`
-		Fqdn               string      `json:"fqdn"`
-		Scheme             string      `json:"scheme"`
-		BehindProxy        bool        `json:"behind_proxy"`
-		MaintenanceMode    bool        `json:"maintenance_mode"`
-		Memory             int         `json:"memory"`
-		MemoryOverallocate int         `json:"memory_overallocate"`
-		Disk               int         `json:"disk"`
-		DiskOverallocate   int         `json:"disk_overallocate"`
-		UploadSize         int         `json:"upload_size"`
-		DaemonListen       int         `json:"daemon_listen"`
-		DaemonSftp         int         `json:"daemon_sftp"`
-		DaemonBase         string      `json:"daemon_base"`
-		CreatedAt          time.Time   `json:"created_at"`
-		UpdatedAt          time.Time   `json:"updated_at"`
+		Id                 int       `json:"id"`
+		Uuid               string    `json:"uuid"`
+		Public             bool      `json:"public"`
+		Name               string    `json:"name"`
+		Description        string    `json:"description"`
+		LocationId         int       `json:"location_id"`
+		Fqdn               string    `json:"fqdn"`
+		Scheme             string    `json:"scheme"`
+		BehindProxy        bool      `json:"behind_proxy"`
+		MaintenanceMode    bool      `json:"maintenance_mode"`
+		Memory             int       `json:"memory"`
+		MemoryOverallocate int       `json:"memory_overallocate"`
+		Disk               int       `json:"disk"`
+		DiskOverallocate   int       `json:"disk_overallocate"`
+		UploadSize         int       `json:"upload_size"`
+		DaemonListen       int       `json:"daemon_listen"`
+		DaemonSftp         int       `json:"daemon_sftp"`
+		DaemonBase         string    `json:"daemon_base"`
+		CreatedAt          time.Time `json:"created_at"`
+		UpdatedAt          time.Time `json:"updated_at"`
 		AllocatedResources struct {
 			Memory int `json:"memory"`
 			Disk   int `json:"disk"`

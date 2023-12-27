@@ -10,12 +10,12 @@ type Allocations struct {
 	Data   []struct {
 		Object     string `json:"object"`
 		Attributes struct {
-			Id       int         `json:"id"`
-			Ip       string      `json:"ip"`
-			Alias    interface{} `json:"alias"`
-			Port     int         `json:"port"`
-			Notes    interface{} `json:"notes"`
-			Assigned bool        `json:"assigned"`
+			Id       int    `json:"id"`
+			Ip       string `json:"ip"`
+			Alias    string `json:"alias"`
+			Port     int    `json:"port"`
+			Notes    string `json:"notes"`
+			Assigned bool   `json:"assigned"`
 		} `json:"attributes"`
 	} `json:"data"`
 	Meta struct {

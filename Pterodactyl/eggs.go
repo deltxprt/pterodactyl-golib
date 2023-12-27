@@ -10,22 +10,22 @@ type Eggs struct {
 	Data   []struct {
 		Object     string `json:"object"`
 		Attributes struct {
-			Id           int         `json:"id"`
-			Uuid         string      `json:"uuid"`
-			Name         string      `json:"name"`
-			Nest         int         `json:"nest"`
-			Author       string      `json:"author"`
-			Description  string      `json:"description"`
-			DockerImage  string      `json:"docker_image"`
-			DockerImages interface{} `json:"docker_images"`
-			Config       interface{} `json:"config"`
-			Startup      string      `json:"startup"`
+			Id           int                    `json:"id"`
+			Uuid         string                 `json:"uuid"`
+			Name         string                 `json:"name"`
+			Nest         int                    `json:"nest"`
+			Author       string                 `json:"author"`
+			Description  string                 `json:"description"`
+			DockerImage  string                 `json:"docker_image"`
+			DockerImages map[string]interface{} `json:"docker_images"`
+			Config       map[string]interface{} `json:"config"`
+			Startup      string                 `json:"startup"`
 			Script       struct {
-				Privileged bool        `json:"privileged"`
-				Install    string      `json:"install"`
-				Entry      string      `json:"entry"`
-				Container  string      `json:"container"`
-				Extends    interface{} `json:"extends"`
+				Privileged bool                   `json:"privileged"`
+				Install    string                 `json:"install"`
+				Entry      string                 `json:"entry"`
+				Container  string                 `json:"container"`
+				Extends    map[string]interface{} `json:"extends"`
 			} `json:"script"`
 			CreatedAt     time.Time `json:"created_at"`
 			UpdatedAt     time.Time `json:"updated_at"`
@@ -47,22 +47,22 @@ type Eggs struct {
 					Data   []struct {
 						Object     string `json:"object"`
 						Attributes struct {
-							Id          int         `json:"id"`
-							ExternalId  interface{} `json:"external_id"`
-							Uuid        string      `json:"uuid"`
-							Identifier  string      `json:"identifier"`
-							Name        string      `json:"name"`
-							Description string      `json:"description"`
-							Status      interface{} `json:"status"`
-							Suspended   bool        `json:"suspended"`
+							Id          int    `json:"id"`
+							ExternalId  int    `json:"external_id"`
+							Uuid        string `json:"uuid"`
+							Identifier  string `json:"identifier"`
+							Name        string `json:"name"`
+							Description string `json:"description"`
+							Status      string `json:"status"`
+							Suspended   bool   `json:"suspended"`
 							Limits      struct {
-								Memory      int         `json:"memory"`
-								Swap        int         `json:"swap"`
-								Disk        int         `json:"disk"`
-								Io          int         `json:"io"`
-								Cpu         int         `json:"cpu"`
-								Threads     interface{} `json:"threads"`
-								OomDisabled bool        `json:"oom_disabled"`
+								Memory      int  `json:"memory"`
+								Swap        int  `json:"swap"`
+								Disk        int  `json:"disk"`
+								Io          int  `json:"io"`
+								Cpu         int  `json:"cpu"`
+								Threads     int  `json:"threads"`
+								OomDisabled bool `json:"oom_disabled"`
 							} `json:"limits"`
 							FeatureLimits struct {
 								Databases   int `json:"databases"`
@@ -75,10 +75,10 @@ type Eggs struct {
 							Nest       int `json:"nest"`
 							Egg        int `json:"egg"`
 							Container  struct {
-								StartupCommand string      `json:"startup_command"`
-								Image          string      `json:"image"`
-								Installed      int         `json:"installed"`
-								Environment    interface{} `json:"environment"`
+								StartupCommand string                 `json:"startup_command"`
+								Image          string                 `json:"image"`
+								Installed      int                    `json:"installed"`
+								Environment    map[string]interface{} `json:"environment"`
 							} `json:"container"`
 							UpdatedAt time.Time `json:"updated_at"`
 							CreatedAt time.Time `json:"created_at"`
@@ -93,22 +93,22 @@ type Eggs struct {
 type Egg struct {
 	Object     string `json:"object"`
 	Attributes struct {
-		Id           int         `json:"id"`
-		Uuid         string      `json:"uuid"`
-		Name         string      `json:"name"`
-		Nest         int         `json:"nest"`
-		Author       string      `json:"author"`
-		Description  string      `json:"description"`
-		DockerImage  string      `json:"docker_image"`
-		DockerImages interface{} `json:"docker_images"`
-		Config       interface{} `json:"config"`
-		Startup      string      `json:"startup"`
+		Id           int                    `json:"id"`
+		Uuid         string                 `json:"uuid"`
+		Name         string                 `json:"name"`
+		Nest         int                    `json:"nest"`
+		Author       string                 `json:"author"`
+		Description  string                 `json:"description"`
+		DockerImage  string                 `json:"docker_image"`
+		DockerImages map[string]interface{} `json:"docker_images"`
+		Config       map[string]interface{} `json:"config"`
+		Startup      string                 `json:"startup"`
 		Script       struct {
-			Privileged bool        `json:"privileged"`
-			Install    string      `json:"install"`
-			Entry      string      `json:"entry"`
-			Container  string      `json:"container"`
-			Extends    interface{} `json:"extends"`
+			Privileged bool                   `json:"privileged"`
+			Install    string                 `json:"install"`
+			Entry      string                 `json:"entry"`
+			Container  string                 `json:"container"`
+			Extends    map[string]interface{} `json:"extends"`
 		} `json:"script"`
 		CreatedAt time.Time `json:"created_at"`
 		UpdatedAt time.Time `json:"updated_at"`

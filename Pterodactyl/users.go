@@ -11,18 +11,18 @@ type Users struct {
 	Data   []struct {
 		Object     string `json:"object"`
 		Attributes struct {
-			Id         int         `json:"id"`
-			ExternalId interface{} `json:"external_id"`
-			Uuid       string      `json:"uuid"`
-			Username   string      `json:"username"`
-			Email      string      `json:"email"`
-			FirstName  string      `json:"first_name"`
-			LastName   string      `json:"last_name"`
-			Language   string      `json:"language"`
-			RootAdmin  bool        `json:"root_admin"`
-			Fa         bool        `json:"2fa"`
-			CreatedAt  time.Time   `json:"created_at"`
-			UpdatedAt  time.Time   `json:"updated_at"`
+			Id         int       `json:"id"`
+			ExternalId int       `json:"external_id"`
+			Uuid       string    `json:"uuid"`
+			Username   string    `json:"username"`
+			Email      string    `json:"email"`
+			FirstName  string    `json:"first_name"`
+			LastName   string    `json:"last_name"`
+			Language   string    `json:"language"`
+			RootAdmin  bool      `json:"root_admin"`
+			Fa         bool      `json:"2fa"`
+			CreatedAt  time.Time `json:"created_at"`
+			UpdatedAt  time.Time `json:"updated_at"`
 		} `json:"attributes"`
 	} `json:"data"`
 	Meta struct {
@@ -32,8 +32,6 @@ type Users struct {
 			PerPage     int `json:"per_page"`
 			CurrentPage int `json:"current_page"`
 			TotalPages  int `json:"total_pages"`
-			Links       struct {
-			} `json:"links"`
 		} `json:"pagination"`
 	} `json:"meta"`
 }
