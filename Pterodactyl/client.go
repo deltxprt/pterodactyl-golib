@@ -46,9 +46,9 @@ func (c *Client) ApiCall(path string, method string, body []byte, result interfa
 		}
 	}(resp.Body)
 
-	fmt.Println(resp.Body)
+	slog.Debug("response: ",resp.Body)
 
-	fmt.Println("resp is: " + resp.Status)
+	slog.Debug("response status: %d", resp.Status)
 
 	err = json.NewDecoder(resp.Body).Decode(&result)
 
